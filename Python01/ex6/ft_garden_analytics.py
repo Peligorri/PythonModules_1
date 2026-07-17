@@ -41,8 +41,6 @@ class Plant:
 			print(f"Is {days} days more than a year? -> False")
 		elif(days > 365):
 			print(f"Is {days} days more than a year? -> True")
-	def show_statistics_plants(self):
-		self._statistics.show_statistics()
 	@classmethod
 	def anonymous(cls, name=None, height=0, age=0):
 		if name is None:
@@ -62,8 +60,11 @@ class Plant:
 			self._show_calls =self._show_calls + 1
 		def shade_calls(self):
 			self._shade_calls =self._shade_calls + 1
-		def show_statistics(self):
-			print(f"Stats: {self._grow_calls} grow, {self._age_calls} age, {self._show_calls} show")
+
+def show_statistics(plant):
+	print(f"Stats: {plant._statistics._grow_calls} grow, {plant._statistics._age_calls} age, {plant._statistics._show_calls} show")
+	if isinstance(plant, Tree):
+		print(f"{plant._statistics._shade_calls} shade")
 
 class Flower(Plant):
 	def __init__(self, name, height, age, color):
@@ -109,9 +110,6 @@ class Tree(Plant):
 	def show(self):
 		super().show()
 		print(f"Trunk diameter: {self._trunk_diameter}cm")
-	def show_statistics_tree(self):
-		super().show_statistics_plants()
-		print(f"{self._statistics._shade_calls} shade")
 
 
 class Vegetable(Plant):
@@ -136,18 +134,18 @@ def main():
 	print("=== Flower")
 	rose = Flower("Rose", 15, 10, "red")
 	rose.show()
-	rose.show_statistics_plants()
+	show_statistics(rose)
 	rose.grow(1)
 	rose.bloom()
 	rose.show()
-	rose.show_statistics_plants()
+	show_statistics(rose)
 	print("")
 	print("=== Tree")
 	oak = Tree("Oak", 200, 365, 5)
 	oak.show()
-	oak.show_statistics_tree()
+	show_statistics(oak)
 	oak.produce_shade()
-	oak.show_statistics_tree()
+	show_statistics(oak)
 	print("")
 	print("=== Seed")
 	sunflower = Seed("Sunflower", 80, 45, "yellow")
@@ -156,12 +154,12 @@ def main():
 	sunflower.age(20)
 	sunflower.bloom()
 	sunflower.show()
-	sunflower.show_statistics_plants()
+	show_statistics(sunflower)
 	print("")
 	print("=== Anonymous")
 	plant = Plant.anonymous()
 	plant.show()
-	plant.show_statistics_plants()
+	show_statistics(plant)
 
 if __name__ == "__main__":
     main()
