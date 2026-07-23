@@ -33,7 +33,5 @@ def main():
 	print("")
 	print(f"All test completed - program didn't crash!")
 
-
-
 if __name__ == "__main__":
     main()
