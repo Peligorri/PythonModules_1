@@ -1,14 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_hello_garden.py                                 :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jangonza <jangonza@student.42urduliz.com>  +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/06/29 12:42:21 by jangonza          #+#    #+#              #
-#    Updated: 2026/06/29 12:42:24 by jangonza         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-def ft_hello_garden():
-	print("Hello, Garden Community!")
 
+def ft_hello_garden() -> None:
+    print("Hello, Garden Community!")
