@@ -1,29 +1,23 @@
-plant1 = {
-    "Name": "Rose",
-    "Height": 25,
-    "Age": 30
-}
-plant2 = {
-    "Name": "Sunflower",
-    "Height": 80,
-    "Age": 45
-}
-plant3 = {
-    "Name": "Cactus",
-    "Height": 15,
-    "Age": 120
-}
+class Plant:
+    def __init__(self, name: str, height: int, age: int):
+        self.name = name
+        self.height = height
+        self.age = age
+
+    def show(self) -> None:
+        print(f"{self.name}: {self.height}cm, {self.age} days old")
 
 
-def show(plant):
-    print(f"{plant['Name']}: {plant['Height']}cm, {plant['Age']} days old")
-
-
-def main():
+def main() -> None:
     print("=== Garden Plant Registry ===")
-    show(plant1)
-    show(plant2)
-    show(plant3)
+
+    plant1 = Plant("Rose", 25, 30)
+    plant2 = Plant("Sunflower", 80, 45)
+    plant3 = Plant("Cactus", 15, 120)
+
+    plant1.show()
+    plant2.show()
+    plant3.show()
 
 
 if __name__ == "__main__":
