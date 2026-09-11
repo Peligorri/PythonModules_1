@@ -20,16 +20,31 @@ def main() -> None:
 
             print("")
             print("Transform data:")
-            file = open(sys.argv[1], 'w')
+            file = open(sys.argv[1])
             print("===")
             print("")
             for i in lines:
                 i = i.rstrip() + "#\n"
-                file.write(i)
                 print(i, end="")
             print("")
             print("===")
             file.close()
+            new_file_name: str
+            new_file_name = input("Enter new file name (or empty): ")
+            if not new_file_name:
+                print("Not saving data.")
+            else:
+                new_file = open(new_file_name, 'w')
+                file = open(sys.argv[1])
+                new_lines = file.readlines()
+                for i in new_lines:
+                    i = i.rstrip() + "#\n"
+                    new_file.write(i)
+
+                print(f"Saving data to '{new_file_name}'")
+                print(f"Data saved in file '{new_file_name}'")
+                print("")
+
         except Exception as e:
             print(f"Error opening file '{sys.argv[1]}': {e}")
     except Exception:
