@@ -48,7 +48,8 @@ def main() -> None:
                     print("")
                 except Exception as e:
                     print(f"Saving data to '{new_file_name}'")
-                    print(f"[STDERR] Error opening file '{new_file_name}'': {e}")
+                    print("[STDERR] Error opening file "
+                          f"'{new_file_name}'': {e}")
                     print("Data not saved.")
         except Exception as e:
             print(f"Error opening file '{sys.argv[1]}': {e}")
